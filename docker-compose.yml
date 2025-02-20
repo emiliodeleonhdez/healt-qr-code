@@ -1,0 +1,19 @@
+services:
+  # Servicio para MongoDB
+  mongo:
+    container_name: mongodb-health-qr
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/my-health-profile
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db  # Mapeamos el volumen a la base de datos
+
+  # Otros servicios como la aplicación pueden ir aquí si lo necesitas
+  # ...
+
+# Volúmenes definidos a nivel global
+volumes:
+  mongo-data:
