@@ -5,8 +5,6 @@ const MultipleItemsCard: React.FC<IMultipleItemsCardProps> = ({
   cardTitle,
   description,
 }) => {
-  const isArray = (value: unknown) => Array.isArray(value);
-
   return (
     <div className="bg-stone-300 p-2 w-full rounded-lg border-s-8 border-red-500">
       <h2 className="font-bold text-xl p-2">{cardTitle}</h2>

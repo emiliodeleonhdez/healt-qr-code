@@ -47,7 +47,7 @@ class AxiosClient {
 
   public async post<T>(
     url: string,
-    data: any,
+    data: unknown,
     config?: AxiosRequestConfig
   ): Promise<AxiosResponse<T>> {
     try {

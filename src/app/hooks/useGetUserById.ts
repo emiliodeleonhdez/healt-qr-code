@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import AxiosClient from "../services/axiosClient";
 import { UserData } from "../models/Users";
 import { API_COLLECTION, api_url, apiPrefix } from "../common";
-import { useSearchParams } from "next/navigation";
 
 const useGetUserById = (id: string) => {
   console.log("id", id);
@@ -12,17 +11,17 @@ const useGetUserById = (id: string) => {
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  // const searchParams = useSearchParams();
-  // const searchId = searchParams.get("id");
+
+  type UserDataResponse = { user: UserData }
 
   useEffect(() => {
     console.log("The url", `${apiPrefix}${API_COLLECTION.users}${id}`);
     const fetchUser = async () => {
       try {
-        const response: any = await apiClient.get(
+        const response = await apiClient.get<UserDataResponse>(
           `${apiPrefix}${API_COLLECTION.users}${id}`
         );
-        setUser(response.data?.user); // Asumiendo que la respuesta tiene un campo 'user'
+        setUser(response.data.user); // Asumiendo que la respuesta tiene un campo 'user'
       } catch (err: unknown) {
         setError("Error fetching user");
         console.error(err);

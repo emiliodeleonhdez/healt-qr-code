@@ -51,6 +51,6 @@ export async function GET() {
     const getUsers = await UserModel.find();
     return NextResponse.json({ users: getUsers }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to get users" }, { status: 400 });
+    return NextResponse.json({ error: `Failed to get users ${error}` }, { status: 400 });
   }
 }

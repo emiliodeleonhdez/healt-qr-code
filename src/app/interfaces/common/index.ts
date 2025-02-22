@@ -1,4 +1,3 @@
-import { UserData } from "@/app/models/Users";
 import { EmergencyContact } from "../EmergencyContacts";
 
 interface IProfilePic {

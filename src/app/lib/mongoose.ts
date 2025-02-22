@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 import chalk from 'chalk';
 
 const connectDb = async () => {
+
+  const mongoUri = process.env.NODE_ENV === "development" ? process.env.MONGODB_URI_DEV : process.env.MONGODB_URI
+
   if (mongoose.connections[0].readyState) {
     console.log(chalk.green('MongoDB is already connected.'));
     return;

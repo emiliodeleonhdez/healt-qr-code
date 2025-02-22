@@ -5,13 +5,12 @@ import ProfilePic from "@/app/components/ProfilePic/ProfilePic";
 import useGetUserById from "@/app/hooks/useGetUserById";
 import { EmergencyContact } from "@/app/interfaces";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/router";
 import React from "react";
 
 const Profile: React.FC = () => {
   const { id } = useParams();
   const userId = typeof id === "string" ? id : "";
-  const { user, loading, error } = useGetUserById(userId);
+  const { user, loading } = useGetUserById(userId);
 
   return (
     <section className="flex flex-col gap-4 items-center justify-center w-full p-4">
