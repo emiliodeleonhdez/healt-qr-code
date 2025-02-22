@@ -3,15 +3,20 @@ import { useState, useEffect } from "react";
 import AxiosClient from "../services/axiosClient";
 import { UserData } from "../models/Users";
 import { API_COLLECTION, api_url, apiPrefix } from "../common";
-
-const apiClient = new AxiosClient(api_url); // Reemplaza con tu baseURL
+import { useSearchParams } from "next/navigation";
 
 const useGetUserById = (id: string) => {
+  console.log("id", id);
+  const apiClient = new AxiosClient("http://localhost:3000/"); // Reemplaza con tu baseURL
+  console.log("using this url", api_url);
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  // const searchParams = useSearchParams();
+  // const searchId = searchParams.get("id");
 
   useEffect(() => {
+    console.log("The url", `${apiPrefix}${API_COLLECTION.users}${id}`);
     const fetchUser = async () => {
       try {
         const response: any = await apiClient.get(

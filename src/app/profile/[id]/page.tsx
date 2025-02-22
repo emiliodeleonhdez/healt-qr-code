@@ -4,10 +4,14 @@ import MultipleItemsCard from "@/app/components/Card/MultipleItemsCard";
 import ProfilePic from "@/app/components/ProfilePic/ProfilePic";
 import useGetUserById from "@/app/hooks/useGetUserById";
 import { EmergencyContact } from "@/app/interfaces";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Profile: React.FC = () => {
-  const { user, loading, error } = useGetUserById("67b6c41023840c3b3b1635ae");
+  const { id } = useParams();
+  const userId = typeof id === "string" ? id : "";
+  const { user, loading, error } = useGetUserById(userId);
 
   return (
     <section className="flex flex-col gap-4 items-center justify-center w-full">

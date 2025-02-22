@@ -13,6 +13,7 @@ class AxiosClient {
       baseURL: baseURL,
       //   timeout: timeout,
     });
+    console.log("base url", baseURL);
 
     this.axiosInstance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
