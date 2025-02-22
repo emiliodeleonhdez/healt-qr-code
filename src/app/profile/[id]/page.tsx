@@ -43,7 +43,14 @@ const Profile: React.FC = () => {
               cardTitle="Seguro Médico"
               description={user.medicalInsurancePolicy}
             />
-            <Card cardTitle="Tratamiento" description={user.currentTreatment} />
+            <Card
+              cardTitle="Tratamiento"
+              description={
+                user.currentTreatment.length > 0
+                  ? user.currentTreatment
+                  : "No registrado"
+              }
+            />
             {user.emergencyContacts.map((contact: EmergencyContact, key) => {
               return (
                 <MultipleItemsCard

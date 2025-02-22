@@ -1,4 +1,3 @@
-export const api_url = process.env.APP_DEV_URL!;
 export const apiPrefix = "api/";
 
 export enum API_COLLECTION {
@@ -20,4 +19,6 @@ export enum UserFieldLabel {
 }
 
 export const clientUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000/" : process.env.PROD_URL
-export const mongoUri = process.env.NODE_ENV === "development" ? process.env.MONGODB_URI_DEV : process.env.MONGODB_URI
+
+//export const mongoUri = process.env.NODE_ENV === "development" ? process.env.MONGODB_URI_DEV : process.env.MONGODB_URI
+export const mongoUri = process.env.MONGODB_URI

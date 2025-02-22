@@ -8,9 +8,8 @@ import axios, {
 class AxiosClient {
   private axiosInstance: AxiosInstance;
 
-  constructor(baseURL: string) {
+  constructor() {
     this.axiosInstance = axios.create({
-      baseURL: baseURL,
       //   timeout: timeout,
     });
 

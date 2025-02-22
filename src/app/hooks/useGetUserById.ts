@@ -7,7 +7,7 @@ import { API_COLLECTION, apiPrefix, clientUrl } from "../common";
 const useGetUserById = (id: string) => {
 
 
-  const apiClient = useMemo(() => new AxiosClient(clientUrl!), []);
+  const apiClient = useMemo(() => new AxiosClient(), []);
 
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,7 +19,7 @@ const useGetUserById = (id: string) => {
     const fetchUser = async () => {
       try {
         const response = await apiClient.get<UserDataResponse>(
-          `${apiPrefix}${API_COLLECTION.users}${id}`
+          `${clientUrl}${apiPrefix}${API_COLLECTION.users}${id}`
         );
         setUser(response.data.user);
       } catch (err: unknown) {
