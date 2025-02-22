@@ -2,11 +2,12 @@
 import { useState, useEffect, useMemo } from "react";
 import AxiosClient from "../services/axiosClient";
 import { UserData } from "../models/Users";
-import { API_COLLECTION, apiPrefix } from "../common";
+import { API_COLLECTION, apiPrefix, clientUrl } from "../common";
 
 const useGetUserById = (id: string) => {
 
-  const apiClient = useMemo(() => new AxiosClient("http://localhost:3000/"), []);
+
+  const apiClient = useMemo(() => new AxiosClient(clientUrl!), []);
 
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
