@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import connectDb from "@/app/lib/mongoose";
 import UserModel, { UserData } from "@/app/models/Users";
 
-connectDb();
 
 export async function POST(request: Request) {
+  await connectDb();
 
   try {
     const {
@@ -46,6 +46,8 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
+  await connectDb();
+
   try {
     const getUsers = await UserModel.find();
     return NextResponse.json({ users: getUsers }, { status: 200 });

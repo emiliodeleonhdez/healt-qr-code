@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import User, { UserData } from "../../../models/Users"; // Importar el modelo de Usuario
+import connectDb from "@/app/lib/mongoose";
 
 // Obtener usuario por ID
 export async function GET(
@@ -9,6 +10,8 @@ export async function GET(
   const { id } = await params;
 
   try {
+    await connectDb();
+
     const user = await User.findById(id);
 
     if (!user) {
@@ -43,6 +46,8 @@ export async function PUT(
 
   try {
     // Encontrar y actualizar usuario por ID
+    await connectDb();
+
     const updatedUser = await User.findByIdAndUpdate(
       id,
       {
@@ -82,6 +87,8 @@ export async function DELETE(
   const { id } = await params;
 
   try {
+    await connectDb();
+
     const userDelete = await User.findByIdAndDelete(id);
     if (!userDelete) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
