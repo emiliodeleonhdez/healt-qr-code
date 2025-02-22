@@ -5,7 +5,6 @@ import UserModel, { UserData } from "@/app/models/Users";
 connectDb();
 
 export async function POST(request: Request) {
-  console.log("Start of POST request");
 
   try {
     const {

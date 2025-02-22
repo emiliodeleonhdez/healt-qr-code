@@ -1,27 +1,26 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import AxiosClient from "../services/axiosClient";
 import { UserData } from "../models/Users";
-import { API_COLLECTION, api_url, apiPrefix } from "../common";
+import { API_COLLECTION, apiPrefix } from "../common";
 
 const useGetUserById = (id: string) => {
-  console.log("id", id);
-  const apiClient = new AxiosClient("http://localhost:3000/"); // Reemplaza con tu baseURL
-  console.log("using this url", api_url);
+
+  const apiClient = useMemo(() => new AxiosClient("http://localhost:3000/"), []);
+
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  type UserDataResponse = { user: UserData }
+  type UserDataResponse = { user: UserData };
 
   useEffect(() => {
-    console.log("The url", `${apiPrefix}${API_COLLECTION.users}${id}`);
     const fetchUser = async () => {
       try {
         const response = await apiClient.get<UserDataResponse>(
           `${apiPrefix}${API_COLLECTION.users}${id}`
         );
-        setUser(response.data.user); // Asumiendo que la respuesta tiene un campo 'user'
+        setUser(response.data.user);
       } catch (err: unknown) {
         setError("Error fetching user");
         console.error(err);
@@ -33,7 +32,7 @@ const useGetUserById = (id: string) => {
     if (id) {
       fetchUser();
     }
-  }, [id]); // El hook se volverá a ejecutar si cambia el id
+  }, [id, apiClient]);
 
   return { user, loading, error };
 };

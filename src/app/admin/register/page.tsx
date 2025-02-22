@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const MedicalForm = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +15,6 @@ const MedicalForm = () => {
     emergencyContacts: [{ name: "", relation: "", phone: "" }],
     medicalInsurancePolicy: "",
   });
-
-  useEffect(() => {
-    console.log("Form Data", formData);
-  }, [formData]);
 
   // Manejo de campos simples
   const handleChange = (e: {
@@ -85,7 +81,6 @@ const MedicalForm = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Aquí podrías enviar la información a una API o realizar otra acción.
-    console.log("Datos del formulario:", formData);
   };
 
   return (
