@@ -14,7 +14,7 @@ const Profile: React.FC = () => {
   const { user, loading, error } = useGetUserById(userId);
 
   return (
-    <section className="flex flex-col gap-4 items-center justify-center w-full">
+    <section className="flex flex-col gap-4 items-center justify-center w-full p-4">
       {!loading && user && (
         <ProfilePic name={`${user.name} ${user.lastName}`} />
       )}
