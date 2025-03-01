@@ -18,8 +18,12 @@ export enum UserFieldLabel {
   VERSION = "Versión",
 }
 
-export const clientUrl = process.env.NODE_ENV === "development"
-  ? "http://localhost:3000/"
-  : "https://healt-qr-code.vercel.app/"
+export const clientUrl =
+  process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_APP_URL_DEV
+    : process.env.NEXT_PUBLIC_APP_URL;
 
-export const mongoUri = process.env.NODE_ENV === "development" ? process.env.MONGODB_URI_DEV : process.env.MONGODB_URI
+export const mongoUri =
+  process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_MONGODB_URI_DEV
+    : process.env.NEXT_PUBLIC_MONGODB_URI;

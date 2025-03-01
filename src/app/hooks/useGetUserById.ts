@@ -5,8 +5,6 @@ import { UserData } from "../models/Users";
 import { API_COLLECTION, apiPrefix, clientUrl } from "../common";
 
 const useGetUserById = (id: string) => {
-
-
   const apiClient = useMemo(() => new AxiosClient(), []);
 
   const [user, setUser] = useState<UserData | null>(null);
@@ -16,6 +14,7 @@ const useGetUserById = (id: string) => {
   type UserDataResponse = { user: UserData };
 
   useEffect(() => {
+    console.log("env", process.env);
     const fetchUser = async () => {
       try {
         const response = await apiClient.get<UserDataResponse>(

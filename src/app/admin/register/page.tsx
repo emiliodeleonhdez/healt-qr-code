@@ -1,7 +1,9 @@
 "use client";
 
+import { API_COLLECTION, apiPrefix, clientUrl } from "@/app/common";
 import Button from "@/app/components/Button/Button";
 import { FormInput } from "@/app/components/Input/FormInput";
+import AxiosClient from "@/app/services/axiosClient";
 import React, { useEffect, useState } from "react";
 
 const MedicalForm = () => {
@@ -29,6 +31,28 @@ const MedicalForm = () => {
       ],
     });
   };
+
+  const addAllergy = () => {
+    setFormData({
+      ...formData,
+      allergies: [...formData.allergies, ""],
+    });
+  };
+
+  const addCondition = () => {
+    setFormData({
+      ...formData,
+      preExistingConditions: [...formData.preExistingConditions, ""],
+    });
+  };
+
+  const addMedication = () => {
+    setFormData({
+      ...formData,
+      currentTreatment: [...formData.currentTreatment, ""],
+    });
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
@@ -47,9 +71,58 @@ const MedicalForm = () => {
     });
   };
 
+  const handleAllergyChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { value } = e.target;
+    setFormData((prev) => {
+      const newAllergies = [...prev.allergies];
+      newAllergies[index] = value;
+      return { ...prev, allergies: newAllergies };
+    });
+  };
+
+  const handleConditionChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { value } = e.target;
+    setFormData((prev) => {
+      const newConditions = [...prev.preExistingConditions];
+      newConditions[index] = value;
+      return { ...prev, preExistingConditions: newConditions };
+    });
+  };
+
+  const handleTreatmentChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { value } = e.target;
+    setFormData((prev) => {
+      const newMed = [...prev.currentTreatment];
+      newMed[index] = value;
+      return { ...prev, currentTreatment: newMed };
+    });
+  };
+
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = () => {
+    const api = new AxiosClient();
+    try {
+      const createUserResponse = api.post(
+        `${clientUrl}${apiPrefix}${API_COLLECTION.users}`,
+        formData
+      );
+      console.log("createUserResponse", createUserResponse);
+    } catch (error) {
+      throw new Error("Error creating user", { cause: error });
+    }
   };
 
   return (
@@ -116,12 +189,104 @@ const MedicalForm = () => {
             <option value="AB-">AB-</option>
           </select>
         </div>
+        <FormInput
+          labelText="Poliza de Seguro Médico"
+          type="text"
+          name="medicalInsurancePolicy"
+          value={formData.medicalInsurancePolicy}
+          handleChange={handleChange}
+          tailwindOptions="border border-2"
+        />
+        <div>
+          <h3 className="font-bold">Tratamiento</h3>
+          <div className="border-solid border-2 w-full my-2"></div>
+          {formData.currentTreatment.map((medication, index) => (
+            <div key={index}>
+              <FormInput
+                labelText="Medicamento"
+                type="text"
+                name="currentTreatment"
+                value={medication}
+                tailwindOptions="border border-2"
+                handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleTreatmentChange(index, e)
+                }
+              />
+              <div className="border-solid border-2 w-full my-2"></div>
+            </div>
+          ))}
+          <div className="flex justify-center items-center">
+            <Button
+              tailwindOptions="rounded-full p-4 bg-green-500 text-white w-[50px] h-[50px] flex justify-center items-center"
+              type="submit"
+              onClick={addMedication}
+            >
+              +
+            </Button>
+          </div>
+        </div>
+        <div>
+          <h3 className="font-bold">Enfermedades</h3>
+          <div className="border-solid border-2 w-full my-2"></div>
+          {formData.preExistingConditions.map((condition, index) => (
+            <div key={index}>
+              <FormInput
+                labelText="Enfermedad"
+                type="text"
+                name="preExistingConditions"
+                value={condition}
+                tailwindOptions="border border-2"
+                handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleConditionChange(index, e)
+                }
+              />
+              <div className="border-solid border-2 w-full my-2"></div>
+            </div>
+          ))}
+          <div className="flex justify-center items-center">
+            <Button
+              tailwindOptions="rounded-full p-4 bg-green-500 text-white w-[50px] h-[50px] flex justify-center items-center"
+              type="submit"
+              onClick={addCondition}
+            >
+              +
+            </Button>
+          </div>
+        </div>
+        <div>
+          <h3 className="font-bold">Alergias</h3>
+          <div className="border-solid border-2 w-full my-2"></div>
+          {formData.allergies.map((allergy, index) => (
+            <div key={index}>
+              <FormInput
+                labelText="Alergia"
+                type="text"
+                name="allergies"
+                value={allergy}
+                tailwindOptions="border border-2"
+                handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleAllergyChange(index, e)
+                }
+              />
+              <div className="border-solid border-2 w-full my-2"></div>
+            </div>
+          ))}
+          <div className="flex justify-center items-center">
+            <Button
+              tailwindOptions="rounded-full p-4 bg-green-500 text-white w-[50px] h-[50px] flex justify-center items-center"
+              type="submit"
+              onClick={addAllergy}
+            >
+              +
+            </Button>
+          </div>
+        </div>
         <div>
           <h3 className="font-bold">Contactos de Emergencia</h3>
           <div className="border-solid border-2 w-full my-2"></div>
           {formData.emergencyContacts.map((contact, index) => (
-            <>
-              <div key={index}>
+            <div key={index}>
+              <>
                 <FormInput
                   labelText="Nombre"
                   type="text"
@@ -152,9 +317,9 @@ const MedicalForm = () => {
                     handleContactChange(index, e)
                   }
                 />
-              </div>
+              </>
               <div className="border-solid border-2 w-full my-2"></div>
-            </>
+            </div>
           ))}
         </div>
         <div className="flex justify-center items-center">
@@ -162,22 +327,18 @@ const MedicalForm = () => {
             tailwindOptions="rounded-full p-4 bg-rose-500 text-white w-[50px] h-[50px] flex justify-center items-center"
             type="submit"
             onClick={addEmergencyContact}
-            children="+"
-          />
+          >
+            +
+          </Button>
         </div>
-        <FormInput
-          labelText="Poliza de Seguro Médico"
-          type="text"
-          name="medicalInsurancePolicy"
-          value={formData.medicalInsurancePolicy}
-          handleChange={handleChange}
-          tailwindOptions="border border-2"
-        />
+
         <Button
           tailwindOptions="rounded-full p-4 bg-orange-700 text-white"
           type="submit"
-          children="Enviar"
-        />
+          onClick={handleSubmit}
+        >
+          Enviar
+        </Button>
       </form>
     </section>
   );
