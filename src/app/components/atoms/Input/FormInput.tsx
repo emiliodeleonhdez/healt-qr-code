@@ -7,7 +7,7 @@ export const INPUT_BASE_CLASSES =
 
 interface FormInputProps {
   labelText: string;
-  tailwindOptions: string; // puedes pasar "" si usarás las base
+  tailwindOptions?: string;
   type: string;
   name: string;
   value: string;

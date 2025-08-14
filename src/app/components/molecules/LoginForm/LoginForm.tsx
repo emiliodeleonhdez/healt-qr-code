@@ -1,46 +1,46 @@
 "use client";
 import React from "react";
 import { FormInput } from "../../atoms/Input/FormInput";
+import { Button } from "../../atoms/Button/Button";
 
 const LoginForm = () => {
   return (
-    <form className="flex flex-col gap-4">
+    <form className="flex flex-col py-4 gap-4">
       <FormInput
         labelText="Nombre Completo"
         type="text"
         name="fullName"
         value={""}
         placeholder="Ingresa tu nombre completo"
-        tailwindOptions="" // o agrega extras aquí
         handleChange={() => {}}
       />
-            <FormInput
+      <FormInput
         labelText="Correo Electrónico"
         type="email"
         name="email"
         value={""}
         placeholder="Ingresa tu correo electrónico"
-        tailwindOptions="" // o agrega extras aquí
         handleChange={() => {}}
       />
-            <FormInput
+      <FormInput
         labelText="Contraseña"
         type="password"
         name="password"
         value={""}
         placeholder="Crea una contraseña (min. 6 caracteres)"
-        tailwindOptions="" // o agrega extras aquí
         handleChange={() => {}}
       />
-            <FormInput
+      <FormInput
         labelText="Confirmar contraseña"
         type="password"
         name="password"
         value={""}
         placeholder="Confirmar contraseña"
-        tailwindOptions="" // o agrega extras aquí
         handleChange={() => {}}
       />
+      <Button>
+        <p className="font-semibold">Crear cuenta</p>
+      </Button>
     </form>
   );
 };
