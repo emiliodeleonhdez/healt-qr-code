@@ -1,7 +1,7 @@
 "use client";
-import Card from "@/app/components/Card/Card";
-import MultipleItemsCard from "@/app/components/Card/MultipleItemsCard";
-import ProfilePic from "@/app/components/ProfilePic/ProfilePic";
+import Card from "@/app/components/atoms/Card/Card";
+import MultipleItemsCard from "@/app/components/atoms/Card/MultipleItemsCard";
+import ProfilePic from "@/app/components/atoms/ProfilePic/ProfilePic";
 import useGetUserById from "@/app/hooks/useGetUserById";
 import { EmergencyContact } from "@/app/interfaces";
 import { useParams } from "next/navigation";

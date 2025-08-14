@@ -1,8 +1,8 @@
 "use client";
 
 import { API_COLLECTION, apiPrefix, clientUrl } from "@/app/common";
-import Button from "@/app/components/Button/Button";
-import { FormInput } from "@/app/components/Input/FormInput";
+import Button from "@/app/components/atoms/Button/Button";
+import { FormInput } from "@/app/components/atoms/Input/FormInput";
 import AxiosClient from "@/app/services/axiosClient";
 import React, { useEffect, useState } from "react";
 
