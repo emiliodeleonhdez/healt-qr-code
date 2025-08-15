@@ -6,14 +6,16 @@ import React from "react";
 const page = () => {
   return (
     <section className="p-16">
-      <section className="flex justify-between items-center">
-        <div className="p-2">
+      <section className="flex flex-col jutify-center md:flex-row md:justify-between items-center">
+        <div className="p-2 flex flex-col items-center md:items-start gap-2">
           <h2 className="font-bold text-xl md:text-3xl">Dashboard</h2>
           <p className="text-gray-600">
             Visión general del sistema de placas médicas
           </p>
         </div>
-        <CreateProfileButton />
+        <div className="py-4 md:p-0">
+          <CreateProfileButton />
+        </div>
       </section>
       <DashboardCards />
       <QuickActions />

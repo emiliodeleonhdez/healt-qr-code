@@ -51,7 +51,7 @@ const cardsData = [
 
 const DashboardCards = () => {
   return (
-    <section className="flex gap-6 flex-wrap py-8">
+    <section className="flex flex-col md:flex-row gap-6 flex-wrap py-8">
       {cardsData.map((card, index) => (
         <DashboardCard
           key={index}

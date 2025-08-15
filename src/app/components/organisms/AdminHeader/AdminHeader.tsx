@@ -7,13 +7,16 @@ import { LogOut } from "lucide-react";
 
 const AdminHeader = () => {
   return (
-    <div className="border-b bg-white/80 backdrop-blur-sm flex items-center justify-between px-16 py-4">
+    <div className="border-b bg-white flex items-center justify-between px-4 sm:px-16 py-4 top-0 sticky z-50">
       <div className="flex gap-2 items-center p-2">
         <AdminLogo />
-        <h2 className="font-bold">MediScnaId Admin</h2>
+        <h2 className="font-bold">MediScanId Admin</h2>
       </div>
-      <AdminNavLinks />
-      <div className="logout_section">
+
+      <div className="flex-1 flex justify-end">
+        <AdminNavLinks />
+      </div>
+      <div className="hidden lg:block">
         <Button
           icon={<LogOut className="h-6 w-6 text-gray-600" />}
           variant="secondary"
