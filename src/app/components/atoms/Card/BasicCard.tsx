@@ -11,6 +11,7 @@ type BasicCardProps = {
   className?: string;
   size?: Size;
   headerAlignment?: HeaderAlignment;
+  topIcon?: React.ReactNode;
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -32,11 +33,13 @@ export const BasicCard: React.FC<BasicCardProps> = ({
   cardBody,
   className = "",
   headerAlignment = "start",
+  topIcon,
 }) => {
   return (
     <article
       className={`rounded-2xl border border-gray-200 bg-white p-2 shadow-sm ${className}`}
     >
+      {topIcon && topIcon}
       <header className="card_header">
         {cardHeader ? (
           <div
