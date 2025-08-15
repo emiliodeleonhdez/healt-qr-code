@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/app/components/atoms/Button/Button";
+import { Button } from "@/app/components/atoms/button/Button";
 import { FormInput } from "@/app/components/atoms/Input/FormInput";
 import React from "react";
 

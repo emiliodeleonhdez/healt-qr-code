@@ -1,6 +1,6 @@
 "use client";
-import Card from "@/app/components/atoms/Card/Card";
-import MultipleItemsCard from "@/app/components/atoms/Card/MultipleItemsCard";
+import Card from "@/app/components/atoms/card/Card";
+import MultipleItemsCard from "@/app/components/atoms/card/MultipleItemsCard";
 import ProfilePic from "@/app/components/atoms/ProfilePic/ProfilePic";
 import useGetUserById from "@/app/hooks/useGetUserById";
 import { EmergencyContact } from "@/app/interfaces";

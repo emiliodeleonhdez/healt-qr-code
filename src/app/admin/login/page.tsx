@@ -1,7 +1,6 @@
-import { BasicCard } from "@/app/components/atoms/Card/BasicCard";
+import { BasicCard } from "@/app/components/atoms/card/BasicCard";
 import AdminLoginForm from "@/app/components/molecules/Admin/AdminLoginForm/AdminLoginForm";
 import AdminLogo from "@/app/components/molecules/Admin/AdminLogo/AdminLogo";
-import { Shield } from "lucide-react";
 import React from "react";
 
 const AdminLoginPage: React.FC = () => {
@@ -15,6 +14,7 @@ const AdminLoginPage: React.FC = () => {
         cardSubHeader="Accede al panel de administración de placas médicas"
         cardBody={<AdminLoginForm />}
         topIcon={<AdminLogo />}
+        topIconAlignment="center"
       />
     </section>
   );

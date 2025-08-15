@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { FormInput } from "../../atoms/Input/FormInput";
-import { Button } from "../../atoms/Button/Button";
+import { Button } from "../../atoms/button/Button";
 
 const LoginForm = () => {
   return (

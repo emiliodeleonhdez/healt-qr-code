@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import React from "react";
+import { start } from "repl";
 
 type Size = "sm" | "md" | "lg";
 type HeaderAlignment = "start" | "center" | "end";
+type TopIconAlignment = "start" | "center" | "end";
 
 type BasicCardProps = {
   cardHeader?: React.ReactNode;
@@ -12,6 +14,7 @@ type BasicCardProps = {
   size?: Size;
   headerAlignment?: HeaderAlignment;
   topIcon?: React.ReactNode;
+  topIconAlignment?: TopIconAlignment;
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -26,6 +29,12 @@ const headerAlignmentClasses: Record<HeaderAlignment, string> = {
   end: "text-right",
 };
 
+const topIconAlignmentClasses: Record<TopIconAlignment, string> = {
+  start: "justify-start",
+  center: "justify-center",
+  end: "justify-end",
+};
+
 export const BasicCard: React.FC<BasicCardProps> = ({
   size = "sm",
   cardHeader,
@@ -34,12 +43,22 @@ export const BasicCard: React.FC<BasicCardProps> = ({
   className = "",
   headerAlignment = "start",
   topIcon,
+  topIconAlignment = "start",
 }) => {
   return (
     <article
       className={`rounded-2xl border border-gray-200 bg-white p-2 shadow-sm ${className}`}
     >
-      {topIcon && topIcon}
+      {topIcon && (
+        <div
+          className={clsx(
+            "flex py-4",
+            topIconAlignmentClasses[topIconAlignment]
+          )}
+        >
+          {topIcon}
+        </div>
+      )}
       <header className="card_header">
         {cardHeader ? (
           <div

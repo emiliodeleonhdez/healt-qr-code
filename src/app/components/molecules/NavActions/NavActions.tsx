@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Button } from "../../atoms/Button/Button";
+import { Button } from "../../atoms/button/Button";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X, LogIn, UserPlus } from "lucide-react";
 
