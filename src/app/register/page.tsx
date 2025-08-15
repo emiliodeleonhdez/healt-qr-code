@@ -33,7 +33,7 @@ const Register: React.FC = () => {
         headerAlignment="center"
         size="lg"
         className="p-8"
-        cardHeader="Crea Tu Cuenta"
+        cardHeader="Crea tu cuenta"
         cardSubHeader="Crea tu perfil médico de emergencia en minutos"
         cardBody={<CardBodyLoginFullForm />}
       />
