@@ -51,16 +51,25 @@ const cardsData = [
 
 const DashboardCards = () => {
   return (
-    <section className="flex flex-col md:flex-row gap-6 flex-wrap py-8">
+    <section className="flex flex-wrap gap-6 py-8">
       {cardsData.map((card, index) => (
-        <DashboardCard
+        <div
           key={index}
-          title={card.title}
-          count={card.count}
-          icon={card.icon}
-          description={card.description}
-          disabled={card.disabled}
-        />
+          className="
+            flex-[1_1_240px]   /* mismo ancho base para todos */
+            sm:flex-[1_1_260px]
+            lg:flex-[1_1_280px]
+          "
+        >
+          <DashboardCard
+            title={card.title}
+            count={card.count}
+            icon={card.icon}
+            description={card.description}
+            disabled={card.disabled}
+            className="h-full"
+          />
+        </div>
       ))}
     </section>
   );
