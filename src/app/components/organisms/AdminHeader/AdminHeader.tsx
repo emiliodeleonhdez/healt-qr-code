@@ -7,7 +7,7 @@ import { LogOut } from "lucide-react";
 
 const AdminHeader = () => {
   return (
-    <div className="border-b bg-white/80 backdrop-blur-sm flex items-center justify-between p-4">
+    <div className="border-b bg-white/80 backdrop-blur-sm flex items-center justify-between px-16 py-4">
       <div className="flex gap-2 items-center p-2">
         <AdminLogo />
         <h2 className="font-bold">MediScnaId Admin</h2>
