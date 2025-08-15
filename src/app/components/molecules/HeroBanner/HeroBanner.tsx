@@ -1,7 +1,10 @@
 import React from "react";
 import { Button } from "../../atoms/Button/Button";
+import { useRouter } from "next/navigation";
 
 const HeroBanner = () => {
+  const router = useRouter();
+
   return (
     <section className="bg-red-500 text-white py-16">
       <div className="container mx-auto px-4 flex flex-col items-center text-center">
@@ -12,7 +15,11 @@ const HeroBanner = () => {
           Con MediScanId, tu información médica siempre está lista para cuando
           más la necesitas.
         </p>
-        <Button size="md" variant="outline">
+        <Button
+          onClick={() => router.push("/register")}
+          size="md"
+          variant="outline"
+        >
           Comienza ahora
         </Button>
       </div>

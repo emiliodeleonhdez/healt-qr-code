@@ -4,7 +4,7 @@ import Header from "./components/organisms/Header/Header";
 import Footer from "./components/organisms/Footer/Footer";
 import HeroBanner from "./components/molecules/HeroBanner/HeroBanner";
 
-const HIDE_ON = ["/login", "/admin/login"];
+const HIDE_ON = ["/login", "/register"];
 
 export default function LayoutFrame({
   children,

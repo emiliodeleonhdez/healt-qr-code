@@ -1,24 +1,23 @@
 "use client";
 import React from "react";
 import { BasicCard } from "../components/atoms/Card/BasicCard";
-import LoginForm from "../components/molecules/LoginForm/LoginForm";
+import LoginForm from "../components/molecules/RegisterForm/RegisterForm";
 import { useRouter } from "next/navigation";
 
-const CardBodyRegisterFullForm: React.FC = () => {
+const CardBodyLoginFullForm: React.FC = () => {
   const router = useRouter();
-
   return (
     <div>
       <LoginForm />
       <div className="flex flex-col items-center gap-2">
         <p>
-          ¿No tienes cuenta aún?
+          ¿Ya tienes cuenta?
           <span
-            onClick={() => router.push("/register")}
+            onClick={() => router.push("/login")}
             className="text-red-500 hover:text-red-600 font-semibold hover:cursor-pointer"
           >
             {" "}
-            Crea una aquí
+            Inicia sesión aquí
           </span>
         </p>
         <p className="hover:text-gray-800 hover:cursor-pointer">Ver demo</p>
@@ -27,19 +26,19 @@ const CardBodyRegisterFullForm: React.FC = () => {
   );
 };
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   return (
     <section className="p-2 md:p-8 lg:p-16 flex justify-center">
       <BasicCard
         headerAlignment="center"
         size="lg"
         className="p-8"
-        cardHeader="¡Bienvenido de vuelta!"
-        cardSubHeader="Inicia sesión para acceder a tu perfil médico y código QR"
-        cardBody={<CardBodyRegisterFullForm />}
+        cardHeader="Crea Tu Cuenta"
+        cardSubHeader="Crea tu perfil médico de emergencia en minutos"
+        cardBody={<CardBodyLoginFullForm />}
       />
     </section>
   );
 };
 
-export default Login;
+export default Register;
