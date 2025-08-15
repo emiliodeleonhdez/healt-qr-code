@@ -55,7 +55,7 @@ const NavActions: React.FC = () => {
           aria-haspopup="menu"
           aria-expanded={open}
           aria-controls="navactions-popover"
-          className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white/80 backdrop-blur px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-black/20"
+          className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white/80 backdrop-blur px-3 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-black/20"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           <span className="sr-only">Abrir menú</span>

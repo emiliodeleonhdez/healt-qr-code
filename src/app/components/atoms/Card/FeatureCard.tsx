@@ -15,7 +15,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <article
-      className={`card container mx-auto rounded-2xl border border-gray-200 bg-white p-2 shadow-sm transition-shadow hover:shadow-md ${className}`}
+      className={`card container mx-auto rounded-2xl border border-gray-200 bg-white p-2 shadow-md transition-shadow hover:shadow-md ${className}`}
     >
       <header className="card_header">
         {cardHeader ? (

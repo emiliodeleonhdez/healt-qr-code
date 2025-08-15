@@ -21,7 +21,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   return (
     <article
       className={clsx(
-        "flex flex-col justify-center items-center gap-2 rounded-2xl border bg-white p-8 shadow-sm transition",
+        "flex flex-col justify-center items-center gap-2 rounded-2xl border bg-white p-8 shadow-md transition",
         disabled
           ? "opacity-50 cursor-not-allowed border-gray-300"
           : "border-gray-200 hover:shadow-md",

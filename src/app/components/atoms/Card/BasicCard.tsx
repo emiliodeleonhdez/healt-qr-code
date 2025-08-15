@@ -47,7 +47,7 @@ export const BasicCard: React.FC<BasicCardProps> = ({
 }) => {
   return (
     <article
-      className={`rounded-2xl border border-gray-200 bg-white p-2 shadow-sm ${className}`}
+      className={`rounded-2xl border border-gray-200 bg-white p-2 shadow-md ${className}`}
     >
       {topIcon && (
         <div
