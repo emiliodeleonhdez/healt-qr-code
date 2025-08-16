@@ -7,7 +7,9 @@ const QuickActions = () => {
     <article className="rounded-2xl border bg-white p-8 shadow-md">
       <div className="p-2 py-4 flex flex-col items-center md:items-start">
         <h2 className="font-bold text-lg md:text-2xl">Acciones rápidas</h2>
-        <p className="text-gray-600">Acciones comunes administrativas</p>
+        <p className="text-gray-600 text-center md:text-left">
+          Acciones comunes administrativas
+        </p>
       </div>
       <section className="flex flex-wrap gap-2 py-4">
         <div className="flex-[1_1_200px]">

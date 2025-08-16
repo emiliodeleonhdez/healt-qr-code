@@ -27,8 +27,7 @@ const getVariantClasses = (
     secondary: "bg-white text-black",
     danger: "bg-red-600 text-white",
     warning: "bg-yellow-400 text-white",
-    outline:
-      "bg-white border-2 border-black border-solid text-black",
+    outline: "bg-white border-2 border-black border-solid text-black",
   }[variant];
 
   const hover = {
@@ -36,8 +35,7 @@ const getVariantClasses = (
     secondary: "hover:bg-gray-200",
     danger: "hover:bg-red-700",
     warning: "hover:bg-yellow-500",
-    outline:
-      "hover:bg-gray-200",
+    outline: "hover:bg-gray-200",
   }[variant];
 
   return isDisabled ? base : `${base} ${hover}`;
@@ -81,7 +79,7 @@ export const Button: React.FC<ButtonProps> = ({
       ) : (
         <>
           {icon && <span className="text-lg btn-icon">{icon}</span>}
-          <span>{children}</span>
+          {children}
         </>
       )}
     </button>
