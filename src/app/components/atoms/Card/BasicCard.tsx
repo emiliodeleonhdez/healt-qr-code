@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React from "react";
-import { start } from "repl";
 
 type Size = "sm" | "md" | "lg";
 type HeaderAlignment = "start" | "center" | "end";

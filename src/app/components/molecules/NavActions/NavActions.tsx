@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../../atoms/button/Button";
 import { useRouter, usePathname } from "next/navigation";
-import { Menu, X, LogIn, UserPlus } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const HIDE_ON = ["/login", "/register"];
 
