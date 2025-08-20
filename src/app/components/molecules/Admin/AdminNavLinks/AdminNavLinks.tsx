@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import NavLink from "../../../atoms/Nav/NavLink";
+import NavLink from "../../../atoms/NavLink/NavLink";
 import {
   Box,
   LayoutDashboard,
