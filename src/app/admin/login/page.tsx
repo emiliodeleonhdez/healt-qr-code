@@ -1,6 +1,6 @@
-import { BasicCard } from "@/app/components/atoms/card/BasicCard";
-import AdminLoginForm from "@/app/components/molecules/Admin/AdminLoginForm/AdminLoginForm";
-import AdminLogo from "@/app/components/molecules/Admin/AdminLogo/AdminLogo";
+import { BasicCard } from "../../../app/components/atoms/card/BasicCard";
+import AdminLoginForm from "../../components/molecules/Admin/AdminLoginForm/AdminLoginForm";
+import AdminLogo from "../../components/molecules/Admin/AdminLogo/AdminLogo";
 import React from "react";
 
 const AdminLoginPage: React.FC = () => {

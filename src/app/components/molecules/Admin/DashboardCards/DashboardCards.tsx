@@ -1,4 +1,4 @@
-import DashboardCard from "@/app/components/atoms/card/DashboardCard";
+import DashboardCard from "../../../atoms/card/DashboardCard";
 import { Box, Clock, NewspaperIcon, User } from "lucide-react";
 import React from "react";
 

@@ -1,5 +1,5 @@
 "use client";
-import QuickAction from "@/app/components/atoms/QuickAction/QuickAction";
+import QuickAction from "../../../atoms/QuickAction/QuickAction";
 import { Box, Eye, UserPlus } from "lucide-react";
 import React from "react";
 import { useRouter } from "next/navigation";

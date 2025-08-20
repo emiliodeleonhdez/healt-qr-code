@@ -1,6 +1,6 @@
-import DashboardCards from "@/app/components/molecules/Admin/DashboardCards/DashboardCards";
-import QuickActions from "@/app/components/molecules/Admin/QuickActions/QuickActions";
-import CreateProfileButton from "@/app/components/molecules/CreateProfileButton/CreateProfileButton";
+import DashboardCards from "../../../app/components/molecules/Admin/DashboardCards/DashboardCards";
+import QuickActions from "../../../app/components/molecules/Admin/QuickActions/QuickActions";
+import CreateProfileButton from "../../../app/components/molecules/CreateProfileButton/CreateProfileButton";
 import React from "react";
 
 const page = () => {
