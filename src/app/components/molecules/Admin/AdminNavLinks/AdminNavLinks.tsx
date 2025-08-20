@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import NavLink from "../../../atoms/nav/NavLink";
+import NavLink from "../../../atoms/Nav/NavLink";
 import {
   Box,
   LayoutDashboard,
@@ -11,7 +11,7 @@ import {
   X,
   LogOut,
 } from "lucide-react";
-import { Button } from "../../../atoms/button/Button";
+import { Button } from "../../../atoms/Button/Button";
 
 const navItems = [
   {

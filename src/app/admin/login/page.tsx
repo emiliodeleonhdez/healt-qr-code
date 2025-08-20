@@ -1,4 +1,4 @@
-import { BasicCard } from "../../../app/components/atoms/card/BasicCard";
+import { BasicCard } from "../../components/atoms/Card/BasicCard";
 import AdminLoginForm from "../../components/molecules/Admin/AdminLoginForm/AdminLoginForm";
 import AdminLogo from "../../components/molecules/Admin/AdminLogo/AdminLogo";
 import React from "react";

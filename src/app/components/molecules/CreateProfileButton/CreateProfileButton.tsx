@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Button } from "../../atoms/button/Button";
+import { Button } from "../../atoms/Button/Button";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 

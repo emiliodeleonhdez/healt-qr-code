@@ -2,7 +2,7 @@
 import React from "react";
 import AdminLogo from "../../molecules/Admin/AdminLogo/AdminLogo";
 import AdminNavLinks from "../../molecules/Admin/AdminNavLinks/AdminNavLinks";
-import { Button } from "../../atoms/button/Button";
+import { Button } from "../../atoms/Button/Button";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 

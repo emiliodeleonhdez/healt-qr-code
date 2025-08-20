@@ -1,5 +1,5 @@
 import React from "react";
-import FeatureCard from "../../atoms/card/FeatureCard";
+import FeatureCard from "../../atoms/Card/FeatureCard";
 import { Shield, Smartphone, Users } from "lucide-react";
 
 const features = [

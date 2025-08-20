@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { BasicCard } from "../components/atoms/card/BasicCard";
+import { BasicCard } from "../components/atoms/Card/BasicCard";
 import LoginForm from "../components/molecules/LoginForm/LoginForm";
 import { useRouter } from "next/navigation";
 

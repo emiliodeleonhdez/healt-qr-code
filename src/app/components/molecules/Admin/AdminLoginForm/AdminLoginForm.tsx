@@ -1,6 +1,6 @@
 "use client";
 import { FormInput } from "../../../atoms/Input/FormInput";
-import { Button } from "../../../atoms/button/Button";
+import { Button } from "../../../atoms/Button/Button";
 import React from "react";
 
 const AdminLoginForm = () => {
