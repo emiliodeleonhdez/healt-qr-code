@@ -7,7 +7,7 @@ import EmergencyContactForm from "../EmergencyConrtactForm/EmergencyContactForm"
 
 const ContactInformation: React.FC = () => {
   return (
-    <>
+    <section className="flex flex-1 gap-2 flex-col md:flex-row">
       <FormInput
         labelText="Nombre"
         placeholder="Nombre de contacto"
@@ -32,7 +32,7 @@ const ContactInformation: React.FC = () => {
         value=""
         handleChange={() => {}}
       />
-    </>
+    </section>
   );
 };
 
