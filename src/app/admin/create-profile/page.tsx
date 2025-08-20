@@ -1,4 +1,4 @@
-import CreateProfileForm from "../../../app/components/molecules/CreateProfileButton/CreateProfileButton";
+import CreateProfileForm from "../../../app/components/molecules/CreateProfileForm/CreateProfileForm";
 import React from "react";
 
 const CreateProfile: React.FC = () => {
