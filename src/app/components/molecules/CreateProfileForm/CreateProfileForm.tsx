@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FormInput } from "../../atoms/Input/FormInput";
 import { Button } from "../../atoms/button/Button";
-import { Plus } from "lucide-react";
+import { Plus, Save } from "lucide-react";
 import EmergencyContactForm from "../EmergencyConrtactForm/EmergencyContactForm";
 
 const ContactInformation: React.FC = () => {
@@ -144,6 +144,25 @@ const CreateProfileForm = () => {
               onRemove={() => removeContact(id)}
             />
           ))}
+        </section>
+        <section className="flex flex-col gap-2">
+          <h2 className="font-semibold">Información adicional</h2>
+          <textarea
+            placeholder="Información médica que pueda ayudar en una emergencia"
+            className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-inner placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500"
+            name="additionalInfo"
+            id=""
+          ></textarea>
+        </section>
+        <section className="flex flex-col gap-2 md:flex-row py-4">
+          <Button
+            className="flex-0 md:flex-1"
+            variant="primary"
+            icon={<Save className="h-4 w-4 text-white" />}
+          >
+            Create Profile
+          </Button>
+          <Button variant="secondary">Cancelar</Button>
         </section>
       </form>
     </section>

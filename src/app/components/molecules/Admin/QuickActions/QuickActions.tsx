@@ -1,8 +1,12 @@
+"use client";
 import QuickAction from "@/app/components/atoms/QuickAction/QuickAction";
 import { Box, Eye, UserPlus } from "lucide-react";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const QuickActions = () => {
+  const router = useRouter();
+
   return (
     <article className="rounded-2xl border bg-white p-8 shadow-md">
       <div className="p-2 py-4 flex flex-col items-center md:items-start">
@@ -12,7 +16,10 @@ const QuickActions = () => {
         </p>
       </div>
       <section className="flex flex-wrap gap-2 py-4">
-        <div className="flex-[1_1_200px]">
+        <div
+          onClick={() => router.push("/admin/create-profile")}
+          className="flex-[1_1_200px] hover:cursor-pointer"
+        >
           <QuickAction
             icon={<UserPlus className="w-6 h-4 text-red-600 font-bold" />}
             title="Crear un perfil nuevo"
