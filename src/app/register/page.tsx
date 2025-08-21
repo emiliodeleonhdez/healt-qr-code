@@ -20,7 +20,12 @@ const CardBodyLoginFullForm: React.FC = () => {
             Inicia sesión aquí
           </span>
         </p>
-        <p className="hover:text-gray-800 hover:cursor-pointer">Ver demo</p>
+        <p
+          onClick={() => router.push("/demo")}
+          className="hover:text-gray-800 hover:cursor-pointer"
+        >
+          Ver demo
+        </p>
       </div>
     </div>
   );

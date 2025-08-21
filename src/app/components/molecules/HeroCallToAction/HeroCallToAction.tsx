@@ -14,7 +14,7 @@ const HeroCallToAction = () => {
       >
         Crear perfil
       </Button>
-      <Button size="md" variant="outline">
+      <Button onClick={() => router.push("/demo")} size="md" variant="outline">
         Ver Demo
       </Button>
     </div>
