@@ -204,7 +204,7 @@ const CreateProfileForm = () => {
               handleChange={handleBasicChange("dateOfBirth")}
             />
           </section>
-          <p>Blood Type</p>
+          <p>Tipo de Sangre</p>
           <select
             name="bloodType"
             value={form.bloodType}
