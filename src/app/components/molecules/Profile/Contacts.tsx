@@ -1,20 +1,61 @@
-import { Phone } from "lucide-react";
-import React from "react";
+import { Phone } from 'lucide-react';
+import React from 'react';
 
 const Contacts = () => {
   return (
-    <article
-      className="flex flex-col gap-2 rounded-2xl border border-gree-300 bg-white shadow-md p-4 
-  w-full max-w-md md:max-w-lg lg:max-w-2xl"
-    >
+    <article className="flex h-fit w-full max-w-md flex-col gap-3 rounded-2xl border border-green-300 bg-white p-4 shadow-md md:max-w-lg lg:max-w-5xl">
       <section className="flex gap-2">
         <Phone className="h-6 w-6 text-green-600" />
-        <h2 className="font-bold text-green-600 text xl">
+        <h2 className="text xl font-bold text-green-600">
           Contactos de emergencia
         </h2>
       </section>
       <section className="flex flex-col gap-2">
-        <div className="flex flex-col rounded-lg bg-green-100">g</div>
+        <div className="flex flex-col rounded-lg border border-green-300 bg-green-100 p-2">
+          <section className="flex justify-between">
+            <h2 className="font-bold text-green-700">Sara Sánchez</h2>
+            <span className="rounded-xl bg-green-700 p-1 text-xs font-semibold text-white">
+              Principal
+            </span>
+          </section>
+          <p>Esposa</p>
+          <a
+            href={`tel:${'(555) 123-4567'}`}
+            className="w-fit rounded-lg border border-green-300 bg-white p-2 text-xl font-bold text-green-700"
+          >
+            {'(555) 123-4567'}
+          </a>
+        </div>
+        <div className="flex flex-col rounded-lg border border-green-300 bg-green-100 p-2">
+          <section className="flex justify-between">
+            <h2 className="font-bold text-green-700">Sara Sánchez</h2>
+            <span className="rounded-xl bg-green-700 p-1 text-xs font-semibold text-white">
+              Principal
+            </span>
+          </section>
+          <p>Esposa</p>
+          <a
+            href={`tel:${'(555) 123-4567'}`}
+            className="w-fit rounded-lg border border-green-300 bg-white p-2 text-xl font-bold text-green-700"
+          >
+            {'(555) 123-4567'}
+          </a>
+        </div>
+        <div className="flex flex-col rounded-lg border border-green-300 bg-green-100 p-2">
+          <section className="flex justify-between">
+            <h2 className="font-bold text-green-700">Sara Sánchez</h2>
+            <span className="rounded-xl bg-green-700 p-1 text-xs font-semibold text-white">
+              Principal
+            </span>
+          </section>
+          <p>Esposa</p>
+          <a
+            href={`tel:${'(555) 123-4567'}`}
+            className="w-fit rounded-lg border border-green-300 bg-white p-2 text-xl font-bold text-green-700"
+          >
+            {'(555) 123-4567'}
+          </a>
+        </div>
       </section>
     </article>
   );
