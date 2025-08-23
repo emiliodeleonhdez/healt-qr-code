@@ -3,10 +3,8 @@ services:
     container_name: mongodb-health-qr
     image: mongo:latest
     restart: always
-    environment:
-      - MONGODB_URI=${MONGODB_URI_DEV}
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo-data:/data/db
 volumes:
