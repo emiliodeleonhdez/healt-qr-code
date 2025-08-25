@@ -28,7 +28,7 @@ const Demo = () => {
             <Meds
               meds={['Insulina NPH 10 UI noche', 'Losartán 50 mg diario']}
             />
-            <Conditions />
+            <Conditions conditions={['Diabetes tipo 1', 'Hipertensión']} />
           </section>
           <section className="flex-1">
             <Contacts />
