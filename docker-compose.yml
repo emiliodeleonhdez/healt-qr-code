@@ -1,8 +1,8 @@
 services:
   mongo:
     container_name: mongodb-health-qr
-    image: mongo:latest
-    restart: always
+    image: mongo:4.4.25
+    restart: unless-stopped
     ports:
       - '27017:27017'
     volumes:

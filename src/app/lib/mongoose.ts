@@ -24,7 +24,7 @@ const connectDb = async () => {
   }
 
   if (!cached.promise) {
-    console.log(chalk.blue('Connecting to MongoDB...'));
+    console.log(chalk.green('Connecting to MongoDB...'));
     cached.promise = mongoose.connect(mongoUri!, {
       bufferCommands: false,
     });
