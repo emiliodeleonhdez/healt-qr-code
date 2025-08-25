@@ -17,7 +17,12 @@ const Demo = () => {
           dateOfBirth="09/Diciembre/2001"
           bloodType="A-"
         />
-        <Alerts />
+        <Alerts
+          allergies={['Nueces', 'Mariscos', 'Polen']}
+          additionalInfo={
+            'Usa bomba de insulina; portar EpiPen por alergia a nueces'
+          }
+        />
         <section className="flex w-full max-w-md flex-col gap-2 md:max-w-lg md:flex-row lg:max-w-5xl">
           <section className="flex flex-1 flex-col gap-2">
             <Meds />

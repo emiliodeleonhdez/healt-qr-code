@@ -1,7 +1,12 @@
 import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 
-const Alerts = () => {
+type AlertsProps = {
+  allergies: string[];
+  additionalInfo: string;
+};
+
+const Alerts: React.FC<AlertsProps> = ({ allergies, additionalInfo }) => {
   return (
     <article className="flex w-full max-w-md flex-col gap-2 rounded-2xl border border-yellow-300 bg-yellow-50 p-4 shadow-md md:max-w-lg lg:max-w-5xl">
       <div className="flex gap-2">
@@ -12,9 +17,9 @@ const Alerts = () => {
       </div>
       <section className="flex flex-col gap-2">
         <p className="font-semibold uppercase">Alergias:</p>
-        <p>Penicilina, mariscos, latex</p>
+        <section className="flex gap-2">{allergies.join(', ')}</section>
         <p className="font-semibold uppercase">Información adicional:</p>
-        <p>Antecedentes de alergias graves. Mantener EpiPen cerca.</p>
+        <p>{additionalInfo}</p>
       </section>
     </article>
   );
