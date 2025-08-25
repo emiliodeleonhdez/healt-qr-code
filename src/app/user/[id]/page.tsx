@@ -6,31 +6,9 @@ import Conditions from '../../../app/components/molecules/Profile/Conditions';
 import Contacts from '../../../app/components/molecules/Profile/Contacts';
 import Meds from '../../../app/components/molecules/Profile/Meds';
 import User from '../../../app/components/molecules/Profile/User';
-import Skeleton from '@/app/components/atoms/Skeleton/Skeleton';
 import { useParams } from 'next/navigation';
 import { calcAge } from '../../../app/common/utils';
-
-const SkeletonMap: React.FC = () => {
-  return (
-    <>
-      <Banner />
-      <div className="flex flex-col items-center gap-2 p-4">
-        <Skeleton />
-        <Skeleton />
-
-        <section className="flex w-full max-w-md flex-col gap-2 md:max-w-lg md:flex-row lg:max-w-5xl">
-          <section className="flex flex-1 flex-col gap-2">
-            <Skeleton />
-            <Skeleton />
-          </section>
-          <section className="flex-1">
-            <Skeleton />
-          </section>
-        </section>
-      </div>
-    </>
-  );
-};
+import SkeletonMap from '../../../app/components/molecules/SkeletonMap/SkeletonMap';
 
 const UserPage = () => {
   const params = useParams<{ id: string }>();
