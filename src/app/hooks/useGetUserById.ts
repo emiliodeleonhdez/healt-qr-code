@@ -1,8 +1,8 @@
-"use client";
-import { useState, useEffect, useMemo } from "react";
-import AxiosClient from "../services/axiosClient";
-import { UserData } from "../models/Users";
-import { API_COLLECTION, apiPrefix, clientUrl } from "../common";
+'use client';
+import { useState, useEffect, useMemo } from 'react';
+import AxiosClient from '../services/axiosClient';
+import { UserData } from '../models/Users';
+import { API_COLLECTION, apiPrefix } from '../common';
 
 const useGetUserById = (id: string) => {
   const apiClient = useMemo(() => new AxiosClient(), []);
@@ -14,15 +14,14 @@ const useGetUserById = (id: string) => {
   type UserDataResponse = { user: UserData };
 
   useEffect(() => {
-    console.log("env", process.env);
     const fetchUser = async () => {
       try {
         const response = await apiClient.get<UserDataResponse>(
-          `${clientUrl}${apiPrefix}${API_COLLECTION.users}${id}`
+          `${apiPrefix}${API_COLLECTION.users}${id}`
         );
         setUser(response.data.user);
       } catch (err: unknown) {
-        setError("Error fetching user");
+        setError('Error fetching user');
         console.error(err);
       } finally {
         setLoading(false);
@@ -33,7 +32,7 @@ const useGetUserById = (id: string) => {
       fetchUser();
     }
   }, [id, apiClient]);
-
+  console.log({ user, loading, error });
   return { user, loading, error };
 };
 

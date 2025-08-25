@@ -3,59 +3,40 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
   InternalAxiosRequestConfig,
-} from "axios";
+} from 'axios';
 
 class AxiosClient {
   private axiosInstance: AxiosInstance;
 
   constructor() {
     this.axiosInstance = axios.create({
-      //   timeout: timeout,
+      timeout: 10000,
+      headers: { 'Content-Type': 'application/json' },
     });
 
     this.axiosInstance.interceptors.request.use(
-      (config: InternalAxiosRequestConfig) => {
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
-      }
+      (config: InternalAxiosRequestConfig) => config,
+      (error) => Promise.reject(error)
     );
 
     this.axiosInstance.interceptors.response.use(
-      (response: AxiosResponse) => {
-        return response;
-      },
-      (error) => {
-        return Promise.reject(error);
-      }
+      (response: AxiosResponse) => response,
+      (error) => Promise.reject(error)
     );
   }
 
-  public async get<T>(
-    url: string,
-    config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<T>> {
-    try {
-      return await this.axiosInstance.get<T>(url, config);
-    } catch (error) {
-      throw error;
-    }
+  private normalize(url: string) {
+    if (/^https?:\/\//i.test(url)) return url;
+    return url.startsWith('/') ? url : `/${url}`;
   }
 
-  public async post<T>(
-    url: string,
-    data: unknown,
-    config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<T>> {
-    try {
-      return await this.axiosInstance.post<T>(url, data, config);
-    } catch (error) {
-      throw error;
-    }
+  public get<T>(url: string, config?: AxiosRequestConfig) {
+    return this.axiosInstance.get<T>(this.normalize(url), config);
   }
 
-  // Otros métodos (PUT, DELETE, etc.) se pueden agregar de forma similar
+  public post<T>(url: string, data: unknown, config?: AxiosRequestConfig) {
+    return this.axiosInstance.post<T>(this.normalize(url), data, config);
+  }
 }
 
 export default AxiosClient;
