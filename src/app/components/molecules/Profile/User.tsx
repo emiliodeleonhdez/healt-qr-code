@@ -1,4 +1,5 @@
-import { Calendar, Droplets, User2 } from 'lucide-react';
+import { formatHumanDate } from '../../../common/utils';
+import { Calendar, CircleCheck, Droplets, User2 } from 'lucide-react';
 import React from 'react';
 
 type UserProps = {
@@ -6,6 +7,7 @@ type UserProps = {
   age: string;
   dateOfBirth: string;
   bloodType: string;
+  insurance: string;
 };
 
 const User: React.FC<UserProps> = ({
@@ -13,6 +15,7 @@ const User: React.FC<UserProps> = ({
   age,
   dateOfBirth,
   bloodType,
+  insurance,
 }) => {
   return (
     <article className="flex w-full max-w-md flex-col rounded-2xl border border-red-300 bg-white py-4 shadow-md md:max-w-lg lg:max-w-5xl">
@@ -23,12 +26,12 @@ const User: React.FC<UserProps> = ({
         </section>
         <div className="date_info flex gap-2 font-bold text-red-600">
           <span>Edad {age} años</span>
-          <span>- {dateOfBirth}</span>
+          <span>- {formatHumanDate(dateOfBirth)}</span>
         </div>
         <section className="flex gap-2 font-bold text-red-600">
           <span>Servicio Médico</span>
           <span>-</span>
-          <span>IMSS: 123456</span>
+          <span>{insurance.length === 0 ? 'No reportado' : insurance}</span>
         </section>
       </section>
       <section className="flex flex-col justify-evenly gap-2 p-4 md:flex-row">
@@ -42,7 +45,9 @@ const User: React.FC<UserProps> = ({
           <h2 className="text-wrap text-center uppercase">
             Perfil Actualizado
           </h2>
-          <h2 className="text-2xl font-bold text-gray-600">14/03/2022</h2>
+          <h2 className="text-2xl font-bold text-green-600">
+            <CircleCheck />
+          </h2>
         </div>
       </section>
     </article>

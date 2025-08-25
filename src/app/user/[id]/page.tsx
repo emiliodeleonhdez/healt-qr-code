@@ -28,6 +28,7 @@ const UserPage = () => {
           age={calcAge(user?.dateOfBirth)}
           dateOfBirth={user?.dateOfBirth as string}
           bloodType={user?.bloodType as string}
+          insurance={user?.insurance as string}
         />
         <Alerts
           allergies={user?.allergies as string[]}
