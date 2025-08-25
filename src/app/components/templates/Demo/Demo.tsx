@@ -11,7 +11,12 @@ const Demo = () => {
     <>
       <Banner />
       <div className="flex flex-col items-center gap-2 p-4">
-        <User />
+        <User
+          fullName="Ileana Pérez Salgado"
+          age="24"
+          dateOfBirth="09/Diciembre/2001"
+          bloodType="A-"
+        />
         <Alerts />
         <section className="flex w-full max-w-md flex-col gap-2 md:max-w-lg md:flex-row lg:max-w-5xl">
           <section className="flex flex-1 flex-col gap-2">
