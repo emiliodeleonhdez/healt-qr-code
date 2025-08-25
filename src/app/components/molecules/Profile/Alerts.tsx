@@ -17,7 +17,9 @@ const Alerts: React.FC<AlertsProps> = ({ allergies, additionalInfo }) => {
       </div>
       <section className="flex flex-col gap-2">
         <p className="font-semibold uppercase">Alergias:</p>
-        <section className="flex gap-2">{allergies.join(', ')}</section>
+        <section className="flex gap-2">
+          {allergies.length === 0 ? 'No reportado' : allergies.join(', ')}
+        </section>
         <p className="font-semibold uppercase">Información adicional:</p>
         <p>{additionalInfo}</p>
       </section>

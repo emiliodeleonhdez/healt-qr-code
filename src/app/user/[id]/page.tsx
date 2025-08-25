@@ -8,6 +8,7 @@ import Meds from '../../../app/components/molecules/Profile/Meds';
 import User from '../../../app/components/molecules/Profile/User';
 import Skeleton from '@/app/components/atoms/Skeleton/Skeleton';
 import { useParams } from 'next/navigation';
+import { calcAge } from '../../../app/common/utils';
 
 const SkeletonMap: React.FC = () => {
   return (
@@ -46,7 +47,7 @@ const UserPage = () => {
       <div className="flex flex-col items-center gap-2 p-4">
         <User
           fullName={user?.fullName as string}
-          age="24"
+          age={calcAge(user?.dateOfBirth)}
           dateOfBirth={user?.dateOfBirth as string}
           bloodType={user?.bloodType as string}
         />

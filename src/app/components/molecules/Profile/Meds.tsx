@@ -13,14 +13,16 @@ const Meds: React.FC<MedsProps> = ({ meds }) => {
         <h2 className="text xl font-bold text-blue-600">Tratamiento actual</h2>
       </section>
       <section className="flex flex-col gap-2">
-        {meds.map((med) => (
-          <div
-            key={med}
-            className="rounded-xl border-l-4 border-blue-600 bg-blue-50 p-4"
-          >
-            <p>{med}</p>
-          </div>
-        ))}
+        {meds.length === 0
+          ? 'No reportado'
+          : meds.map((med) => (
+              <div
+                key={med}
+                className="rounded-xl border-l-4 border-blue-600 bg-blue-50 p-4"
+              >
+                <p>{med}</p>
+              </div>
+            ))}
       </section>
     </article>
   );
