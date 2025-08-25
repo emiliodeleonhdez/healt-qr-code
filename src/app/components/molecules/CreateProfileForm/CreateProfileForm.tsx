@@ -24,6 +24,7 @@ type BasicForm = {
   existing: string[];
   additionalInfo: string;
   insurance: string;
+  insuranceInput: string;
 };
 
 const ContactInformation: React.FC<{
@@ -79,6 +80,7 @@ const CreateProfileForm = () => {
     existing: [],
     additionalInfo: '',
     insurance: '',
+    insuranceInput: '',
   });
 
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -164,6 +166,7 @@ const CreateProfileForm = () => {
       existingConditions: form.existing,
       additionalInfo: form.additionalInfo.trim(),
       emergencyContacts: contacts.map(({ ...rest }) => rest),
+      insurance: form.insuranceInput.trim(),
     };
 
     try {
@@ -206,23 +209,27 @@ const CreateProfileForm = () => {
               handleChange={handleBasicChange('dateOfBirth')}
             />
           </section>
-          <p>Tipo de Sangre</p>
-          <select
-            name="bloodType"
-            value={form.bloodType}
-            onChange={handleBasicChange('bloodType')}
-            className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-400 shadow-inner focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
-          >
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB-">AB-</option>
-            <option value="Desconocido">Desconocido</option>
-          </select>
+          <section className="py-2">
+            <p className="text-sm font-semibold text-gray-700">
+              Tipo de Sangre
+            </p>
+            <select
+              name="bloodType"
+              value={form.bloodType}
+              onChange={handleBasicChange('bloodType')}
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-400 shadow-inner focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            >
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="Desconocido">Desconocido</option>
+            </select>
+          </section>
         </section>
 
         {/* Información médica */}
@@ -230,11 +237,11 @@ const CreateProfileForm = () => {
           <h2 className="text-lg font-bold">Información Médica</h2>
           <FormInput
             labelText="Seguro Médico"
-            placeholder="ej. IMSS, ISSTE, GNP"
+            placeholder="ej., IMSS: 23547, ISSTE: 9093, GNP: G33112"
             type="text"
             name="insurance"
-            value={form.insurance}
-            handleChange={handleBasicChange('insurance')}
+            value={form.insuranceInput}
+            handleChange={handleBasicChange('insuranceInput')}
           />
 
           {/* Alergias */}
@@ -425,6 +432,7 @@ const CreateProfileForm = () => {
                 existing: [],
                 additionalInfo: '',
                 insurance: '',
+                insuranceInput: '',
               });
               setContacts([]);
             }}
