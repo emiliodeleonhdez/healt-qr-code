@@ -11,12 +11,7 @@ export const calcAge = (dob?: string | null): string => {
 
 export const formatHumanDate = (
   isoDate: string,
-  locale: string = 'es-MX',
-  options: Intl.DateTimeFormatOptions = {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  }
+  locale: string = 'es-MX'
 ): string => {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(isoDate);
   if (!m) return isoDate;
