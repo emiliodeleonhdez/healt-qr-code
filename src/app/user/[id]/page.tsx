@@ -17,7 +17,7 @@ const UserPage = () => {
 
   if (loading) return <SkeletonMap />;
   if (error)
-    return <div className="p-4 text-red-600">Error cargando usuario.</div>;
+    return <div className="p-4 text-red-600">Error cargando usuario</div>;
 
   return (
     <>

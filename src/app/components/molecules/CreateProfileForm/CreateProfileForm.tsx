@@ -157,18 +157,6 @@ const CreateProfileForm = () => {
       return;
     }
 
-    // const payload = {
-    //   fullName: form.fullName.trim(),
-    //   dateOfBirth: form.dateOfBirth || null,
-    //   bloodType: form.bloodType || 'Desconocido',
-    //   allergies: form.allergies,
-    //   currentTreatment: form.currentTreatment,
-    //   existingConditions: form.existing,
-    //   additionalInfo: form.additionalInfo.trim(),
-    //   emergencyContacts: contacts.map(({ ...rest }) => rest),
-    //   insurance: form.insuranceInput.trim(),
-    // };
-
     try {
       alert('Perfil creado correctamente.');
     } catch (err) {
