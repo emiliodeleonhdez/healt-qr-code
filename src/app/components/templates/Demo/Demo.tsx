@@ -6,6 +6,11 @@ import Meds from '../../molecules/Profile/Meds';
 import Conditions from '../../molecules/Profile/Conditions';
 import Contacts from '../../molecules/Profile/Contacts';
 
+const demoEmergencyContacts = [
+  { name: 'María Salgado Díaz', relation: 'Madre', phone: '+52 33 1445 9988' },
+  { name: 'Tomás Pérez Ortega', relation: 'Primo', phone: '+52 55 6600 2299' },
+];
+
 const Demo = () => {
   return (
     <>
@@ -31,7 +36,7 @@ const Demo = () => {
             <Conditions conditions={['Diabetes tipo 1', 'Hipertensión']} />
           </section>
           <section className="flex-1">
-            <Contacts />
+            <Contacts contacts={demoEmergencyContacts} />
           </section>
         </section>
       </div>
