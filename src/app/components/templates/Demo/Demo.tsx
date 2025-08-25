@@ -25,7 +25,9 @@ const Demo = () => {
         />
         <section className="flex w-full max-w-md flex-col gap-2 md:max-w-lg md:flex-row lg:max-w-5xl">
           <section className="flex flex-1 flex-col gap-2">
-            <Meds />
+            <Meds
+              meds={['Insulina NPH 10 UI noche', 'Losartán 50 mg diario']}
+            />
             <Conditions />
           </section>
           <section className="flex-1">
