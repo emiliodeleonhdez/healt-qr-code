@@ -21,6 +21,7 @@ const Demo = () => {
           age="24"
           dateOfBirth="09/Diciembre/2001"
           bloodType="A-"
+          insurance="IMSS: 123456"
         />
         <Alerts
           allergies={['Nueces', 'Mariscos', 'Polen']}
