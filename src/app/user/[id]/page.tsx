@@ -1,5 +1,5 @@
 'use client';
-import useGetUserById from '@/app/hooks/useGetUserById';
+import useGetUserById from '../../../app/hooks/useGetUserById';
 import Alerts from '../../../app/components/molecules/Profile/Alerts';
 import Banner from '../../../app/components/molecules/Profile/Banner';
 import Conditions from '../../../app/components/molecules/Profile/Conditions';
