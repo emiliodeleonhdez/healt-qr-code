@@ -32,7 +32,6 @@ const useGetUserById = (id: string) => {
       fetchUser();
     }
   }, [id, apiClient]);
-  console.log({ user, loading, error });
   return { user, loading, error };
 };
 

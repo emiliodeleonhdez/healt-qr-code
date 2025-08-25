@@ -170,7 +170,6 @@ const CreateProfileForm = () => {
     };
 
     try {
-      console.log('Submitting payload:', payload);
       alert('Perfil creado correctamente.');
     } catch (err) {
       console.error('Ocurrió un error al enviar el formulario' + err);
@@ -414,7 +413,7 @@ const CreateProfileForm = () => {
             variant="primary"
             icon={<Save className="h-4 w-4 text-white" />}
           >
-            Create Profile
+            Crear Perfil
           </Button>
           <Button
             variant="secondary"

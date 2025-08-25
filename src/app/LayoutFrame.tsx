@@ -1,11 +1,11 @@
-"use client";
-import { usePathname } from "next/navigation";
-import Header from "./components/organisms/Header/Header";
-import Footer from "./components/organisms/Footer/Footer";
-import HeroBanner from "./components/molecules/HeroBanner/HeroBanner";
+'use client';
+import { usePathname } from 'next/navigation';
+import Header from './components/organisms/Header/Header';
+import Footer from './components/organisms/Footer/Footer';
+import HeroBanner from './components/molecules/HeroBanner/HeroBanner';
 
-const HIDE_ON = ["/login", "/register", "/admin"];
-const HEADER_HIDE_ON = ["/admin"];
+const HIDE_ON = ['/login', '/register', '/admin'];
+const HEADER_HIDE_ON = ['/admin', '/user'];
 
 export default function LayoutFrame({
   children,
@@ -17,7 +17,7 @@ export default function LayoutFrame({
   const hideHeader = HEADER_HIDE_ON.some((p) => pathname.startsWith(p));
 
   return (
-    <div className="min-h-svh flex flex-col">
+    <div className="flex min-h-svh flex-col">
       {!hideHeader && <Header />}
       <main className="flex-1">{children}</main>
       {!hide && <HeroBanner />}
