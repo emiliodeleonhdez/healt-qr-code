@@ -25,6 +25,11 @@ const User: React.FC<UserProps> = ({
           <span>Edad {age} años</span>
           <span>- {dateOfBirth}</span>
         </div>
+        <section className="flex gap-2 font-bold text-red-600">
+          <span>Servicio Médico</span>
+          <span>-</span>
+          <span>IMSS: 123456</span>
+        </section>
       </section>
       <section className="flex flex-col justify-evenly gap-2 p-4 md:flex-row">
         <div className="flex flex-1 flex-col items-center gap-2 rounded-2xl bg-red-100 p-4">
