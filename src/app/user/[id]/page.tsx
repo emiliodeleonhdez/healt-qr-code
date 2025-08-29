@@ -9,8 +9,12 @@ import User from '../../../app/components/molecules/Profile/User';
 import { useParams } from 'next/navigation';
 import { calcAge } from '../../../app/common/utils';
 import SkeletonMap from '../../../app/components/molecules/SkeletonMap/SkeletonMap';
+import { Heart } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { MEDISCAN_PATHS } from '../../../app/common';
 
 const UserPage = () => {
+  const router = useRouter();
   const params = useParams<{ id: string }>();
   const id = params?.id;
   const { user, loading, error } = useGetUserById(id);
@@ -42,6 +46,25 @@ const UserPage = () => {
           <section className="flex-1">
             <Contacts contacts={user?.emergencyContacts as []} />
           </section>
+        </section>
+        <section className="m-1 flex flex-col items-center p-2 text-xs">
+          <Heart className="h-4 w-4 font-bold text-red-500" />
+          <p> Impulsado por mediscanid.info</p>
+          <p>
+            Cualquier duda, revisa nuestro{' '}
+            <a className="hover:cursor-pointer hover:text-red-800">
+              Aviso de Privacidad
+            </a>
+          </p>
+          <p>
+            ¿Interesado?{' '}
+            <span
+              className="hover:cursor-pointer hover:text-red-800"
+              onClick={() => router.push(MEDISCAN_PATHS.REGISTER)}
+            >
+              Crea tu perfil aquí
+            </span>
+          </p>
         </section>
       </div>
     </>

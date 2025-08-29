@@ -23,7 +23,7 @@ const CardBodyRegisterFullForm: React.FC = () => {
           </span>
         </p>
         <p
-          onClick={() => router.push('/demo')}
+          onClick={() => router.push(MEDISCAN_PATHS.DEMO)}
           className="hover:cursor-pointer hover:text-gray-800"
         >
           Ver demo

@@ -11,4 +11,6 @@ export const mongoUri =
 
 export enum MEDISCAN_PATHS {
   REGISTER = 'https://forms.gle/66UTP3zE4ppKw1DcA',
+  DEMO = '/demo',
+  USER = '/user',
 }

@@ -15,7 +15,11 @@ const HeroCallToAction = () => {
       >
         Crear perfil
       </Button>
-      <Button onClick={() => router.push('/demo')} size="md" variant="outline">
+      <Button
+        onClick={() => router.push(MEDISCAN_PATHS.DEMO)}
+        size="md"
+        variant="outline"
+      >
         Ver Demo
       </Button>
     </div>

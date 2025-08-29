@@ -4,6 +4,7 @@ import { Button } from '../../atoms/Button/Button';
 import { useRouter, usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { MEDISCAN_PATHS } from '../../../../app/common';
+import { FEATURE_HIDE_ON_BETA } from '../../../../app/common/features';
 
 const HIDE_ON = ['/login', '/register'];
 
@@ -31,14 +32,17 @@ const NavActions: React.FC = () => {
   return (
     <div className="flex items-center">
       <div className="hidden items-center gap-2 sm:flex">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => router.push('/login')}
-          className="rounded-full px-4 py-1.5 font-medium"
-        >
-          Iniciar&nbsp;sesión
-        </Button>
+        {!FEATURE_HIDE_ON_BETA && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => router.push('/login')}
+            className="rounded-full px-4 py-1.5 font-medium"
+          >
+            Iniciar&nbsp;sesión
+          </Button>
+        )}
+
         <Button
           variant="primary"
           size="sm"
