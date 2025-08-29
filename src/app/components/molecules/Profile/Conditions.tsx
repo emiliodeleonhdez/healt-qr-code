@@ -15,14 +15,16 @@ const Conditions: React.FC<ConditionsProps> = ({ conditions }) => {
         </h2>
       </section>
       <section className="flex flex-wrap gap-2">
-        {conditions.map((condition) => (
-          <p
-            key={condition}
-            className="rounded-xl border border-violet-300 p-2"
-          >
-            {condition}
-          </p>
-        ))}
+        {conditions.length === 0
+          ? 'No reportado'
+          : conditions.map((condition) => (
+              <p
+                key={condition}
+                className="rounded-xl border border-violet-300 p-2"
+              >
+                {condition}
+              </p>
+            ))}
       </section>
     </article>
   );
