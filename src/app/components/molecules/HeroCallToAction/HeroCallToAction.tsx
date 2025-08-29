@@ -1,20 +1,21 @@
-"use client";
-import React from "react";
-import { Button } from "../../atoms/Button/Button";
-import { useRouter } from "next/navigation";
+'use client';
+import React from 'react';
+import { Button } from '../../atoms/Button/Button';
+import { useRouter } from 'next/navigation';
+import { MEDISCAN_PATHS } from '../../../../app/common';
 
 const HeroCallToAction = () => {
   const router = useRouter();
   return (
-    <div className="flex gap-2 justify-center">
+    <div className="flex justify-center gap-2">
       <Button
-        onClick={() => router.push("/register")}
+        onClick={() => router.push(MEDISCAN_PATHS.REGISTER)}
         size="md"
         variant="primary"
       >
         Crear perfil
       </Button>
-      <Button onClick={() => router.push("/demo")} size="md" variant="outline">
+      <Button onClick={() => router.push('/demo')} size="md" variant="outline">
         Ver Demo
       </Button>
     </div>

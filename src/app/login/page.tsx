@@ -1,8 +1,9 @@
-"use client";
-import React from "react";
-import { BasicCard } from "../components/atoms/Card/BasicCard";
-import LoginForm from "../components/molecules/LoginForm/LoginForm";
-import { useRouter } from "next/navigation";
+'use client';
+import React from 'react';
+import { BasicCard } from '../components/atoms/Card/BasicCard';
+import LoginForm from '../components/molecules/LoginForm/LoginForm';
+import { useRouter } from 'next/navigation';
+import { MEDISCAN_PATHS } from '../common';
 
 const CardBodyRegisterFullForm: React.FC = () => {
   const router = useRouter();
@@ -14,16 +15,16 @@ const CardBodyRegisterFullForm: React.FC = () => {
         <p>
           ¿No tienes cuenta aún?
           <span
-            onClick={() => router.push("/register")}
-            className="text-red-500 hover:text-red-600 font-semibold hover:cursor-pointer"
+            onClick={() => router.push(MEDISCAN_PATHS.REGISTER)}
+            className="font-semibold text-red-500 hover:cursor-pointer hover:text-red-600"
           >
-            {" "}
+            {' '}
             Crea una aquí
           </span>
         </p>
         <p
-          onClick={() => router.push("/demo")}
-          className="hover:text-gray-800 hover:cursor-pointer"
+          onClick={() => router.push('/demo')}
+          className="hover:cursor-pointer hover:text-gray-800"
         >
           Ver demo
         </p>
@@ -34,7 +35,7 @@ const CardBodyRegisterFullForm: React.FC = () => {
 
 const Login: React.FC = () => {
   return (
-    <section className="p-2 md:p-8 lg:p-16 flex justify-center">
+    <section className="flex justify-center p-2 md:p-8 lg:p-16">
       <BasicCard
         headerAlignment="center"
         size="lg"
