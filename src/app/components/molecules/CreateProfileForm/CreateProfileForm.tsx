@@ -4,8 +4,8 @@ import { FormInput } from '../../atoms/Input/FormInput';
 import { Button } from '../../atoms/Button/Button';
 import { Plus, Save } from 'lucide-react';
 import EmergencyContactForm from '../EmergencyConrtactForm/EmergencyContactForm';
-import useCreateUser from '@/app/hooks/useCreateUser';
-import { UserData } from '@/app/models/Users';
+import useCreateUser from '../../../../app/hooks/useCreateUser';
+import { UserData } from '../../../../app/models/Users';
 
 type Contact = {
   id: number;
