@@ -4,6 +4,8 @@ import { FormInput } from '../../atoms/Input/FormInput';
 import { Button } from '../../atoms/Button/Button';
 import { Plus, Save } from 'lucide-react';
 import EmergencyContactForm from '../EmergencyConrtactForm/EmergencyContactForm';
+import useCreateUser from '@/app/hooks/useCreateUser';
+import { UserData } from '@/app/models/Users';
 
 type Contact = {
   id: number;
@@ -68,6 +70,8 @@ const ContactInformation: React.FC<{
 };
 
 const CreateProfileForm = () => {
+  const { createUser, user, loading, error } = useCreateUser();
+
   const [form, setForm] = useState<BasicForm>({
     fullName: '',
     dateOfBirth: '',
@@ -99,9 +103,14 @@ const CreateProfileForm = () => {
     setForm((prev) => {
       const val = String(prev[inputKey] ?? '').trim();
       if (!val) return prev;
+
+      const current = (prev[listKey] as string[]) ?? [];
+      if (Array.isArray(current) && current.includes(val))
+        return { ...prev, [inputKey]: '' };
+
       return {
         ...prev,
-        [listKey]: [...(prev[listKey] as string[]), val],
+        [listKey]: [...current, val],
         [inputKey]: '',
       };
     });
@@ -137,6 +146,27 @@ const CreateProfileForm = () => {
     );
   };
 
+  const buildPayload = (): UserData => {
+    const date = form.dateOfBirth?.trim();
+    const dateOfBirth: string | null = date ? date : null;
+
+    return {
+      fullName: form.fullName.trim(),
+      dateOfBirth,
+      bloodType: form.bloodType,
+      allergies: form.allergies,
+      currentTreatment: form.currentTreatment,
+      existingConditions: form.existing,
+      additionalInfo: form.additionalInfo?.trim() ?? '',
+      insurance: (form.insuranceInput || '').trim(),
+      emergencyContacts: contacts.map((c) => ({
+        name: c.emergencyContactName.trim(),
+        relation: c.emergencyContactNameRelationship.trim(),
+        phone: c.emergencyContactPhone.trim(),
+      })),
+    } as UserData;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -158,9 +188,12 @@ const CreateProfileForm = () => {
     }
 
     try {
-      alert('Perfil creado correctamente.');
+      const payload = buildPayload();
+      await createUser(payload);
+      // aquí podrías limpiar formulario o mostrar un toast
+      // alert('Perfil creado correctamente.');
     } catch (err) {
-      console.error('Ocurrió un error al enviar el formulario' + err);
+      console.error('Ocurrió un error al enviar el formulario', err);
     }
   };
 
@@ -242,7 +275,7 @@ const CreateProfileForm = () => {
               handleChange={handleBasicChange('allergiesInput')}
             />
             <Button
-              icon={<Plus className="h4 w-4 text-white" />}
+              icon={<Plus className="h-4 w-4 text-white" />}
               type="button"
               onClick={() => pushToList('allergiesInput', 'allergies')}
             >
@@ -281,7 +314,7 @@ const CreateProfileForm = () => {
               handleChange={handleBasicChange('currentTreatmentInput')}
             />
             <Button
-              icon={<Plus className="h4 w-4 text-white" />}
+              icon={<Plus className="h-4 w-4 text-white" />}
               type="button"
               onClick={() =>
                 pushToList('currentTreatmentInput', 'currentTreatment')
@@ -395,13 +428,17 @@ const CreateProfileForm = () => {
           ></textarea>
         </section>
 
+        {error && <p className="text-sm text-red-600">{error}</p>}
+
         <section className="flex flex-col gap-2 py-4 md:flex-row">
           <Button
             className="flex-0 md:flex-1"
             variant="primary"
             icon={<Save className="h-4 w-4 text-white" />}
+            type="submit"
+            disabled={loading}
           >
-            Crear Perfil
+            {loading ? 'Creando…' : 'Crear Perfil'}
           </Button>
           <Button
             variant="secondary"
