@@ -5,6 +5,10 @@ import { MEDISCAN_PATHS } from './app/common';
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  if (process.env.NODE_ENV === 'development') {
+    return NextResponse.next();
+  }
+
   const allow =
     pathname === '/' ||
     pathname.startsWith(MEDISCAN_PATHS.DEMO) ||
