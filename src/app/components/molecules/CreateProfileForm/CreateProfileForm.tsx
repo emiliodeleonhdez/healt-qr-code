@@ -70,7 +70,7 @@ const ContactInformation: React.FC<{
 };
 
 const CreateProfileForm = () => {
-  const { createUser, user, loading, error } = useCreateUser();
+  const { createUser, loading, error } = useCreateUser();
 
   const [form, setForm] = useState<BasicForm>({
     fullName: '',
