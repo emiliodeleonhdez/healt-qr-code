@@ -3,6 +3,7 @@ import AdminModel from '../../../models/Admin';
 import bcrypt from 'bcryptjs';
 import { signAdminJwt, setAdminCookie } from '../../../lib/admin-auth';
 import connectDb from '../../../lib/mongoose';
+import chalk from 'chalk';
 
 export async function POST(req: Request) {
   try {
@@ -29,19 +30,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Bad credentials' }, { status: 401 });
     }
 
-    const token = await signAdminJwt({
-      sub: String(admin._id),
-      email: admin.email,
-      roles: admin.roles,
-    });
-    setAdminCookie(token);
+    // const token = await signAdminJwt({
+    //   sub: String(admin._id),
+    //   email: admin.email,
+    //   roles: admin.roles,
+    // });
+    // setAdminCookie(token);
 
     admin.lastLoginAt = new Date();
     admin.save().catch(() => {});
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('admin login error', err);
+    console.error(chalk.red('Admin login error'), err);
     return NextResponse.json({ error: 'Error while login' }, { status: 500 });
   }
 }
