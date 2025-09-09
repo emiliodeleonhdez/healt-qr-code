@@ -33,3 +33,16 @@ export const formatHumanDate = (
 
   return `${day} de ${Month} de ${y}`;
 };
+
+export const splitNameAndGetInitials = (name: string) => {
+  const initials = name
+    .split(' ')
+    .filter((n, idx) => {
+      if (idx <= 1) {
+        return n;
+      }
+    })
+    .map((n) => n[0])
+    .join('');
+  return initials;
+};

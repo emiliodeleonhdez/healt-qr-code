@@ -1,5 +1,7 @@
-import { formatHumanDate } from '../../../common/utils';
-import { Calendar, CircleCheck, Droplets, User2 } from 'lucide-react';
+import {
+  formatHumanDate,
+  splitNameAndGetInitials,
+} from '../../../common/utils';
 import React from 'react';
 
 type UserProps = {
@@ -18,36 +20,46 @@ const User: React.FC<UserProps> = ({
   insurance,
 }) => {
   return (
-    <article className="flex w-full max-w-md flex-col rounded-2xl border border-red-300 bg-white py-4 shadow-md md:max-w-lg lg:max-w-5xl">
-      <section className="flex flex-col bg-red-200 p-4">
-        <section className="flex gap-2 text-red-600">
-          <User2 />
-          <h2 className="text-lg font-bold">{fullName}</h2>
-        </section>
-        <div className="date_info flex gap-2 font-bold text-red-600">
-          <span>Edad {age} años</span>
-          <span>- {formatHumanDate(dateOfBirth)}</span>
+    <article className="flex w-full max-w-md flex-col items-center justify-center rounded-2xl border border-red-300 bg-white py-4 shadow-md md:max-w-lg lg:max-w-5xl">
+      {/* Componenttt */}
+      <div className="flex items-center justify-center">
+        <div className="flex h-[90px] w-[90px] items-center justify-center rounded-full bg-red-500 p-2 text-xl font-bold text-white">
+          {splitNameAndGetInitials(fullName)}
         </div>
-        <section className="flex gap-2 font-bold text-red-600">
-          <span>Servicio Médico</span>
-          <span>-</span>
-          <span>{insurance.length === 0 ? 'No reportado' : insurance}</span>
-        </section>
-      </section>
-      <section className="flex flex-col justify-evenly gap-2 p-4 md:flex-row">
-        <div className="flex flex-1 flex-col items-center gap-2 rounded-2xl bg-red-100 p-4">
-          <Droplets className="h-8 w-8 text-red-600" />
-          <h2 className="text-wrap uppercase">Tipo de sangre</h2>
-          <h2 className="text-2xl font-bold text-red-600">{bloodType}</h2>
+      </div>
+      <h2 className="p-2 text-lg font-bold text-red-500">{fullName}</h2>
+      {/* Information goes here */}
+      <section className="flex flex-col items-stretch justify-center divide-y divide-gray-300/60 rounded-lg bg-white/40 text-center lg:flex-row lg:divide-x lg:divide-y-0">
+        <div className="w-full px-4 py-3 md:flex-1 md:py-2">
+          <p className="whitespace-nowrap text-[11px] tracking-wide text-gray-500">
+            Tipo de sangre
+          </p>
+          <p className="font-bold leading-tight text-red-500">{bloodType}</p>
         </div>
-        <div className="flex flex-1 flex-col items-center gap-2 rounded-2xl bg-blue-100 p-4">
-          <Calendar className="h-8 w-8 text-blue-600" />
-          <h2 className="text-wrap text-center uppercase">
-            Perfil Actualizado
-          </h2>
-          <h2 className="text-2xl font-bold text-green-600">
-            <CircleCheck />
-          </h2>
+
+        <div className="w-full px-4 py-3 md:flex-1 md:py-2">
+          <p className="whitespace-nowrap text-[11px] tracking-wide text-gray-500">
+            Edad
+          </p>
+          <p className="font-bold tabular-nums leading-tight">{age} años</p>
+        </div>
+
+        <div className="w-full px-4 py-3 md:flex-1 md:py-2">
+          <p className="whitespace-nowrap text-[11px] tracking-wide text-gray-500">
+            Fecha de nacimiento
+          </p>
+          <p className="whitespace-nowrap font-bold leading-tight">
+            {formatHumanDate(dateOfBirth)}
+          </p>
+        </div>
+
+        <div className="w-full px-4 py-3 md:flex-1 md:py-2">
+          <p className="whitespace-nowrap text-[11px] tracking-wide text-gray-500">
+            Servicio Médico
+          </p>
+          <p className="whitespace-nowrap font-bold leading-tight">
+            {insurance}
+          </p>
         </div>
       </section>
     </article>
