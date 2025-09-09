@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import AdminModel from '../../../models/Admin';
 import bcrypt from 'bcryptjs';
-import { signAdminJwt, setAdminCookie } from '../../../lib/admin-auth';
+// import { signAdminJwt, setAdminCookie } from '../../../lib/admin-auth';
 import connectDb from '../../../lib/mongoose';
 import chalk from 'chalk';
 
