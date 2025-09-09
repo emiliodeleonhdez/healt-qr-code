@@ -57,9 +57,7 @@ const User: React.FC<UserProps> = ({
           <p className="whitespace-nowrap text-[11px] tracking-wide text-gray-500">
             Servicio Médico
           </p>
-          <p className="whitespace-nowrap font-bold leading-tight">
-            {insurance}
-          </p>
+          <p className="whitespace-wrap font-bold leading-tight">{insurance}</p>
         </div>
       </section>
     </article>
